@@ -12,11 +12,12 @@ def call() {
             }
         }
 
-        stage("Build & Push Python Image") {
-            dir('python') {
-                docker.buildPythonImage()
-                docker.pushPythonImage()
-            }
+        stage("Build Docker Image") {
+            docker.buildPythonImage()
+        }
+
+        stage("Push Docker Image") {
+            docker.pushPythonImage()
         }
     }
 }
